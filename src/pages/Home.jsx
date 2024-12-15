@@ -1,6 +1,12 @@
-const home = () => {
+import DefaultLayout from "../components/layout/DefaultLayout"
+
+const Home = () => {
   return (
-    <div>home</div>
+    <div>
+      <DefaultLayout>
+        <p>Hi gome</p>
+      </DefaultLayout>
+    </div>
   )
 }
-export default home
+export default Home
