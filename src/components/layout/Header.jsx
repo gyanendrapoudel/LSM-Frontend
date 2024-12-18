@@ -26,14 +26,14 @@ const  Header = () => {
               Link
             </Link>
           </Nav>
-          <Nav.Link className="d-flex user-container  gap-3">
+          <Nav className="d-flex user-container  gap-3">
             <Link className="nav-link" to="/signin">
               <IoIosLogIn /> SignIn
             </Link>
             <Link className="nav-link" to="/signup">
               <FaArrowCircleUp /> SignUp
             </Link>
-          </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

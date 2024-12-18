@@ -1,5 +1,15 @@
 import { Route, Routes } from "react-router-dom"
-import { Home, SignIn, SignUp, Users, ForgetPassword, Dashboard} from "../pages"
+import {
+  Home,
+  SignIn,
+  SignUp,
+  Users,
+  Borrow,
+  Profile,
+  ForgetPassword,
+  Dashboard,
+  Books,
+} from '../pages'
 import DefaultLayout from "../components/layout/DefaultLayout"
 import UserLayout from "../components/layout/UserLayout"
 
@@ -15,8 +25,12 @@ const AppRoutes = () => {
         <Route path="forget-password" element={<ForgetPassword />} />
       </Route>
       {/* Private routing */}
-      <Route path="/user" element={<UserLayout />}>
+      <Route path="/user" element={<UserLayout/>}>
         <Route index element={<Dashboard/>} />
+        <Route path="books" element={<Books/>} />
+        <Route path="user-list" element={<Users/>} />
+        <Route path='borrow' element={<Borrow/>} />
+        <Route path = "profile" element={<Profile/>}/>
       </Route>
     </Routes>
   )
