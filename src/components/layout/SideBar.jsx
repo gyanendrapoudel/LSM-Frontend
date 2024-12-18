@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 const SideBar = () => {
   return (
     <Stack gap={3} className='p-2'>
+        <div className="mt-3">
+            <h4>Welcome Page</h4>
+            <p>Gyanendra Poudel</p>
+        </div>
       <div className="p-2">
         <Link className="nav-link" to="/user">
           Dashboard

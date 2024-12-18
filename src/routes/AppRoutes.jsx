@@ -9,6 +9,7 @@ import {
   ForgetPassword,
   Dashboard,
   Books,
+  PageNotFound,
 } from '../pages'
 import DefaultLayout from "../components/layout/DefaultLayout"
 import UserLayout from "../components/layout/UserLayout"
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path='borrow' element={<Borrow/>} />
         <Route path = "profile" element={<Profile/>}/>
       </Route>
+      <Route path="*" element={<PageNotFound/>} />
     </Routes>
   )
 }

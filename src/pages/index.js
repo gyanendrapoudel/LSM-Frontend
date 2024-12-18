@@ -8,6 +8,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Users from "./Users";
 import Profile from "./Profile";
+import PageNotFound from "./PageNotFound";
 
 export {
   Borrow,
@@ -20,4 +21,5 @@ export {
   Users,
   Profile,
   Books,
+  PageNotFound,
 }
