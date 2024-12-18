@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { IoHome } from 'react-icons/io5'
 import { IoIosLogIn } from 'react-icons/io'
 import { FaArrowCircleUp } from 'react-icons/fa'
-import logo from '../../assets/lms-logo.png'
+import logo from '@/assets/lms-logo.png'
 const  Header = () => {
   return (
     <Navbar expand="lg" className="bg-dark text-light" variant="dark">

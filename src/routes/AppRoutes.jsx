@@ -11,7 +11,7 @@ import {
   Books,
   PageNotFound,
 } from '../pages'
-import DefaultLayout from "../components/layout/DefaultLayout"
+import DefaultLayout from "@components/layout/DefaultLayout"
 import UserLayout from "../components/layout/UserLayout"
 
 
