@@ -47,13 +47,13 @@ const SignUp =()=> {
     },
     {
       label: 'Confirmed Password *',
-      type: 'confirmedPassword',
-      name: 'password',
+      type: 'password',
+      name: 'confirmedPassword',
       placeholder: 'Enter Password',
       required: true,
     },
   ]
-  const {form, setForm, handleOnChange } = useForm(initialState)
+  const {form, setForm, handleOnChange,passwordErrors } = useForm(initialState)
   return (
     <Container className="">
       <Form
@@ -62,11 +62,20 @@ const SignUp =()=> {
         {formInputFields.map((item, index) => {
           return <FormInput key={index} {...item} onChange={handleOnChange}/>
         })}
+        {/* displaying password strength errors */}
+        {passwordErrors.length>0 &&
+        <ul className="text-danger">
+            {passwordErrors.map((error)=>
+             <li key={error}>{error}</li>
+            )}
+        </ul>
+         
+        }
         <div className="w-50 m-auto mt-4">
           <Button
             variant="primary"
             type="submit"
-            disabled={false}
+            disabled={passwordErrors.length}
             style={{ width: '100%' }}
           >
             Submit
