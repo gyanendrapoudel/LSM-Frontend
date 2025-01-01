@@ -4,53 +4,63 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import FormInput from '../components/FormInput';
+import useForm from '../hooks/useForm';
 
+const initialState = {}
 const SignUp =()=> {
 
  
   const formInputFields = [
     {
-      label: 'First Name',
-      name:"fName",
+      label: 'First Name *',
+      name: 'fName',
       type: 'text',
       placeholder: 'Enter First Name',
       required: true,
     },
     {
-      label: 'Last Name',
-      name:"lName",
+      label: 'Last Name *',
+      name: 'lName',
       type: 'text',
       placeholder: 'Enter Last Name',
       required: true,
     },
     {
       label: 'Phone',
-      name:"phone",
+      name: 'phone',
       type: 'text',
       placeholder: 'Enter  phone number',
     },
     {
-      label: 'Email',
-      name:"email",
+      label: 'Email *',
+      name: 'email',
       type: 'email',
       placeholder: 'Enter email',
       required: true,
     },
     {
-      label: 'Password',
+      label: 'Password *',
       type: 'password',
-      name:"password",
+      name: 'password',
+      placeholder: 'Enter Password',
+      required: true,
+    },
+    {
+      label: 'Confirmed Password *',
+      type: 'confirmedPassword',
+      name: 'password',
       placeholder: 'Enter Password',
       required: true,
     },
   ]
+  const {form, setForm, handleOnChange } = useForm(initialState)
   return (
     <Container className="">
       <Form
         className="card mt-5 py-4 px-3 w-50 m-auto shadow-lg rounded"
       >
         {formInputFields.map((item, index) => {
-          return <FormInput key={index} {...item} />
+          return <FormInput key={index} {...item} onChange={handleOnChange}/>
         })}
         <div className="w-50 m-auto mt-4">
           <Button
