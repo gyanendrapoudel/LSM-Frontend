@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import FormInput from '../components/FormInput';
 import useForm from '../hooks/useForm';
-
+import { signUpNewUser } from '../services/authAPI';
 const initialState = {}
 const SignUp =()=> {
 
@@ -54,23 +54,32 @@ const SignUp =()=> {
     },
   ]
   const {form, setForm, handleOnChange,passwordErrors } = useForm(initialState)
+  const {confirmedPassword, ...rest} = form
+
+  const handleOnSubmit = async (e)=>{
+    e.preventDefault()
+    const res = await signUpNewUser(rest)
+  }
+ 
   return (
     <Container className="">
       <Form
         className="card mt-5 py-4 px-3 w-50 m-auto shadow-lg rounded"
+        onSubmit={handleOnSubmit}
       >
+        <h5 className='mb-4'>Join the Library Community ! </h5>
         {formInputFields.map((item, index) => {
-          return <FormInput key={index} {...item} onChange={handleOnChange}/>
+          
+          return <FormInput key={index} {...item} onChange={handleOnChange} />
         })}
         {/* displaying password strength errors */}
-        {passwordErrors.length>0 &&
-        <ul className="text-danger">
-            {passwordErrors.map((error)=>
-             <li key={error}>{error}</li>
-            )}
-        </ul>
-         
-        }
+        {passwordErrors.length > 0 && (
+          <ul className="text-danger">
+            {passwordErrors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
         <div className="w-50 m-auto mt-4">
           <Button
             variant="primary"
