@@ -64,10 +64,10 @@ const SignUp =()=> {
   return (
     <Container className="">
       <Form
-        className="card mt-5 py-4 px-3 w-50 m-auto shadow-lg rounded"
+        className="card mt-1 py-3 px-3 w-50 m-auto shadow-lg rounded"
         onSubmit={handleOnSubmit}
       >
-        <h5 className='mb-4'>Join the Library Community ! </h5>
+        <h5 className='mb-3'>Join the Library Community ! </h5>
         {formInputFields.map((item, index) => {
           
           return <FormInput key={index} {...item} onChange={handleOnChange} />
@@ -80,7 +80,7 @@ const SignUp =()=> {
             ))}
           </ul>
         )}
-        <div className="w-50 m-auto mt-4">
+        <div className="w-50 m-auto mt-3">
           <Button
             variant="primary"
             type="submit"

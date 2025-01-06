@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'react-router'
+import { useNavigate, useSearchParams } from 'react-router'
 import Alert from 'react-bootstrap/Alert'
 
   
@@ -12,8 +12,10 @@ const ActivateUser = () => {
     // use useSearchParams to read data from url
     const [searchParams, setSearchParams] = useSearchParams()
     const [response,setResponse]  = useState({})
+    const navigate = useNavigate()
     const sessionId = searchParams.get('sessionId')
     const t = searchParams.get("t")
+    
 
     // using use effect to call api 
     
@@ -22,14 +24,17 @@ const ActivateUser = () => {
         const activeUser = async (payload) => {
           const result = await activateNewUser(payload)
           setResponse(result)
-          
+          setIsLoading(false)
+          setTimeout(() => {
+            result?.status === 'success' && navigate('/signin')
+          }, 3000);
         }
         activeUser({ sessionId, t })
         fetchOnce.current = false
-        setIsLoading(true)
-       
+        
        
       }
+      
     }, [sessionId,t])
    console.log(response)
   return (
