@@ -9,7 +9,7 @@ import SignUp from "./SignUp";
 import Users from "./Users";
 import Profile from "./Profile";
 import PageNotFound from "./PageNotFound";
-
+import ActivateUser from './ActivateUser'
 export {
   Borrow,
   Dashboard,
@@ -22,4 +22,5 @@ export {
   Profile,
   Books,
   PageNotFound,
+  ActivateUser,
 }

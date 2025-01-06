@@ -10,6 +10,7 @@ import {
   Dashboard,
   Books,
   PageNotFound,
+  ActivateUser,
 } from '../pages'
 import DefaultLayout from "@components/layout/DefaultLayout"
 import UserLayout from "../components/layout/UserLayout"
@@ -23,17 +24,18 @@ const AppRoutes = () => {
         <Route index element={<Home />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="signin" element={<SignIn />} />
+        <Route path="activate-user" element={<ActivateUser />} />
         <Route path="forget-password" element={<ForgetPassword />} />
       </Route>
       {/* Private routing */}
-      <Route path="/user" element={<UserLayout/>}>
-        <Route index element={<Dashboard/>} />
-        <Route path="books" element={<Books/>} />
-        <Route path="user-list" element={<Users/>} />
-        <Route path='borrow' element={<Borrow/>} />
-        <Route path = "profile" element={<Profile/>}/>
+      <Route path="/user" element={<UserLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="books" element={<Books />} />
+        <Route path="user-list" element={<Users />} />
+        <Route path="borrow" element={<Borrow />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
-      <Route path="*" element={<PageNotFound/>} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 }

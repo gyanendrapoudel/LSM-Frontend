@@ -16,3 +16,14 @@ export const signUpNewUser = async(payload)=>{
     return result
     
 }
+
+export const activateNewUser =  (payload)=>{
+    console.log(payload)
+    const obj = {
+      url:  authApiEp+"/activate-user",
+      method:"post",
+      payload
+    }
+    
+    return apiProcessor(obj)
+}
