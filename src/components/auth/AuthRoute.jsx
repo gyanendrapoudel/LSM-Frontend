@@ -1,7 +1,8 @@
-import { Navigate } from "react-router-dom"
+import { Navigate, useLocation } from "react-router-dom"
 
 const AuthRoute = ({children}) => {
-    const isAuth = true
+    const location = useLocation()
+    const isAuth = location.state?.payload
   return isAuth ? children : <Navigate to="/signin" />
 }
 export default AuthRoute

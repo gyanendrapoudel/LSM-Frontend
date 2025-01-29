@@ -27,3 +27,16 @@ export const activateNewUser =  (payload)=>{
     
     return apiProcessor(obj)
 }
+
+// LOGIN 
+export const loginUser = async(payload)=>{
+    const obj = {
+      url: authApiEp+"/login",
+      method:"post",
+      payload,
+      showToast:true
+    }
+      return apiProcessor(obj)
+   
+
+}
