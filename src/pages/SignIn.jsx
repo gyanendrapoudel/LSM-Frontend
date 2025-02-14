@@ -4,6 +4,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import FormInput from '../components/FormInput'
 import { loginUser } from '../services/authAPI'
+import { fetchUserApi } from '../features/user/userAPI'
 const SignIn = () => {
   const { form, setForm, handleOnChange } = useForm({})
   const navigate = useNavigate()
@@ -15,9 +16,14 @@ const SignIn = () => {
       const {email, password} = form
         // call api to login route using AXIOS
         const {status, message,payload} = await loginUser({email,password})
+        if(payload?.accessJWT){
+              sessionStorage.setItem('accessJWT', payload.accessJWT)
+              localStorage.setItem('refreshJWT', payload.refreshJWT)
+              const userInfo = await fetchUserApi()
+              console.log("userInfo", userInfo)
+                        
+        }
         
-        status === 'success' && navigate('/user', { state: {payload } })
-
         
       }
 
