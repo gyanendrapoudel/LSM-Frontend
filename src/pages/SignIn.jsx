@@ -7,8 +7,10 @@ import { loginUser } from '../services/authAPI'
 import { fetchUserApi } from '../features/user/userAPI'
 import { fetchUserAction } from '../features/user/userAction'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 const SignIn = () => {
   const { form, setForm, handleOnChange } = useForm({})
+  const {user} = useSelector((state)=>state.userInfo)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleOnSubmit = async(e)=>{
@@ -30,7 +32,11 @@ const SignIn = () => {
         
       }
 
+
   }
+  useEffect(() => {
+    user?._id && navigate('/user')
+  }, [user?._id , navigate])
 
   return (
     <div className="signin-page">
