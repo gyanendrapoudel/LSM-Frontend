@@ -5,9 +5,12 @@ import useForm from '../hooks/useForm'
 import FormInput from '../components/FormInput'
 import { loginUser } from '../services/authAPI'
 import { fetchUserApi } from '../features/user/userAPI'
+import { fetchUserAction } from '../features/user/userAction'
+import { useDispatch, useSelector } from 'react-redux'
 const SignIn = () => {
   const { form, setForm, handleOnChange } = useForm({})
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleOnSubmit = async(e)=>{
     e.preventDefault()
     // api call using email and password
@@ -19,9 +22,9 @@ const SignIn = () => {
         if(payload?.accessJWT){
               sessionStorage.setItem('accessJWT', payload.accessJWT)
               localStorage.setItem('refreshJWT', payload.refreshJWT)
-              const userInfo = await fetchUserApi()
-              console.log("userInfo", userInfo)
-                        
+              fetchUserAction(dispatch)
+              
+                       
         }
         
         
